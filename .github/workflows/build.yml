@@ -1,0 +1,24 @@
+name: build ccloud toolbox
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        default: "latest"
+jobs:
+  containerize:
+    name: build toolbox image
+    permissions:
+      id-token: write
+      packages: write
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: build
+        run: |
+          podman build -t toolbox-image -f Containerfile
+          podman tag toolbox-image "ghcr.io/${{ github.repository }}:${{ inputs.version }}"
+          echo "${{ github.repository }}"
+          podman login -u token -p ${{ github.token }} ghcr.io
+          podman push "ghcr.io/${{ github.repository }}:${{ inputs.version }}"
