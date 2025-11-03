@@ -1,7 +1,5 @@
 FROM ghcr.io/gardenlinux/nightly:1976.0
 
-LABEL source_repository="https://github.wdf.sap.corp/cc/kube-secrets/tree/master/dockerfiles/toolbox-image"
-
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     iptraf-ng \
