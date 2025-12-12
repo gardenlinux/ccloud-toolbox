@@ -1,4 +1,4 @@
-FROM ghcr.io/gardenlinux/nightly:1976.0
+FROM ghcr.io/gardenlinux/nightly:2082.0.0
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -18,6 +18,7 @@ RUN apt-get update && \
     curl \
     netcat-openbsd \
     openssh-client \
+    snmp \
     socat \
     fio \
     smartmontools \
