@@ -1,25 +1,26 @@
-FROM ghcr.io/gardenlinux/nightly:1976.0
+FROM ghcr.io/gardenlinux/nightly:2082.0.0
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    iptraf-ng \
-    tcpdump \
-    iputils-ping \
-    net-tools \
     bridge-utils \
-    iproute2 \
-    dnsutils \
-    mtr-tiny \
-    traceroute \
-    ethtool \
     conntrack \
+    curl \
+    dnsutils \
+    ethtool \
+    fio \
     iperf \
     iperf3 \
-    curl \
+    iproute2 \
+    iptraf-ng \
+    iputils-ping \
+    mtr-tiny \
+    net-tools \
     netcat-openbsd \
     openssh-client \
-    socat \
-    fio \
     smartmontools \
+    snmp \
+    socat \
     sysstat \
+    tcpdump \
+    traceroute \
     && rm -rf /var/lib/apt/lists/*
